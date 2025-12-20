@@ -4,25 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Brasille Moda Fit • BLACK FRIDAY</title>
+  <title>Brasille Moda Fit • Final de Ano ✨ Natal & Ano Novo</title>
   <link rel="canonical" href="https://brasillemodafit.uk/">
 
   <!-- Open Graph / WhatsApp / Facebook / Instagram -->
   <meta property="og:site_name" content="Brasille Moda Fit">
-  <meta property="og:title" content="Brasille Moda Fit — Catálogo BLACK FRIDAY 🌟" />
-  <meta property="og:description" content="As peças mais desejadas do momento. Últimas unidades! Clique e veja o catálogo completo." />
+  <meta property="og:title" content="Brasille Moda Fit — Final de Ano ✨" />
+  <meta property="og:description" content="Looks de Natal & Ano Novo. Estoque limitado. Clique e veja o catálogo completo." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://brasillemodafit.uk/" />
-  <!-- use exatamente o nome que você subiu: og-brasille-v2.jpeg -->
   <meta property="og:image" content="https://brasillemodafit.uk/og-brasille-v2.jpeg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X (também usado por muitos scrapers) -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Brasille Moda Fit — Catálogo BLACK FRIDAY 🌟">
-  <meta name="twitter:description" content="As peças mais desejadas do momento. Últimas unidades!">
+  <meta name="twitter:title" content="Brasille Moda Fit — Final de Ano ✨">
+  <meta name="twitter:description" content="Looks de Natal & Ano Novo. Estoque limitado.">
   <meta name="twitter:image" content="https://brasillemodafit.uk/og-brasille-v2.jpeg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,124 +72,278 @@
     .fab { bottom: calc(18px + env(safe-area-inset-bottom)); }
     .add { margin: 12px 14px calc(18px + 64px); }
 
-    /* Toques responsivos */
     button,.pill,.add,.swatch,.sizes button { touch-action: manipulation; }
-
-    /* Drawer altura real mobile */
     .panel { height: 100svh; }
 
-    /* Sombra leve nas imagens + cursores do zoom */
-    .card .img img { box-shadow: 0 0 14px rgba(255,105,180,0.12); cursor: zoom-in; }
+    .card .img img { box-shadow: 0 0 16px rgba(245,197,66,0.10); cursor: zoom-in; }
     .lightbox.show img{ cursor: zoom-out; }
     .lightbox.show img:active{ cursor: grabbing; }
-
     #cartList{ padding-top: 6px; }
 
+    /* ============================
+       TEMA NATAL / FINAL DE ANO
+       ============================ */
     :root{
-      --bg:#0b0b0c; --card:#141417; --soft:#1a1b1f; --muted:#a3a3a3; --ink:#f5f5f6;
-      --pink-200:#ffb3d0; --pink-400:#ff79ae; --pink-600:#ff4d95; --pink-700:#e03580;
-      --gold-300:#ffe7a3; --gold-500:#f5c542; --gold-600:#d9a81d;
-      --ring:0 0 0 3px rgba(255,77,149,.25); --radius:18px;
+      --bg:#07080a;
+      --card:#111216;
+      --soft:#171821;
+      --muted:#a7a7b3;
+      --ink:#f5f6fb;
+
+      /* Paleta natal premium */
+      --christmas-red:#e11d48;
+      --christmas-red-2:#be123c;
+      --christmas-green:#22c55e;
+      --christmas-green-2:#16a34a;
+
+      --gold-300:#fff2b8;
+      --gold-500:#f5c542;
+      --gold-600:#d9a81d;
+
+      --ring:0 0 0 3px rgba(245,197,66,.22);
+      --radius:18px;
+
+      --accent: var(--christmas-red);
+      --accent-2: var(--christmas-green);
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;}
-    body{background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-
-    a{color:var(--pink-400);text-decoration:none}
+    body{
+      background:
+        radial-gradient(900px 400px at 12% -12%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(1100px 420px at 92% -18%, rgba(225,29,72,.12), transparent 60%),
+        radial-gradient(1200px 500px at 50% 120%, rgba(245,197,66,.08), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:var(--gold-300);text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:18px}
+
+    /* ===== Neve (canvas) ===== */
+    #snow{
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:5;
+      opacity:.75;
+    }
+    @media (prefers-reduced-motion: reduce){
+      #snow{ display:none; }
+      .twinkle, .lights i{ animation:none !important; }
+    }
 
     /* Header */
     header{
       position:sticky;top:0;z-index:40;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(180deg, rgba(20,20,23,.92), rgba(20,20,23,.80));
-      border-bottom:1px solid #222;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(180deg, rgba(15,16,20,.92), rgba(15,16,20,.78));
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .bar{display:flex;align-items:center;gap:14px;justify-content:space-between}
     .logo{display:flex;align-items:center;gap:12px}
-    .logo img{width:40px;height:40px;border-radius:50%;border:2px solid var(--pink-400);background:#fff}
+    .logo img{
+      width:40px;height:40px;border-radius:50%;
+      border:2px solid rgba(245,197,66,.65);
+      background:#fff;
+      box-shadow: 0 0 18px rgba(245,197,66,.20);
+    }
     .brand{font-weight:800;letter-spacing:.4px}
     .sub{color:var(--muted);font-size:12px}
 
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid #2a2a2f;
-      background:linear-gradient(180deg, #1b1b20, #141417);cursor:pointer;font-weight:700;color:var(--ink)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(23,24,33,.95), rgba(17,18,22,.92));
+      cursor:pointer;font-weight:700;color:var(--ink)
+    }
     .pill:hover{box-shadow:var(--ring)}
+    .pill.active{border-color:rgba(245,197,66,.55);box-shadow:var(--ring)}
 
     /* Hero */
     .hero{
+      position:relative;
       margin:22px 0;border-radius:var(--radius);padding:22px;
-      background:radial-gradient(1200px 300px at 10% -40%, rgba(255,77,149,.18), transparent 60%),
-                 radial-gradient(800px 240px at 90% -20%, rgba(245,197,66,.20), transparent 60%),
-                 linear-gradient(135deg, #151519, #101013);
-      border:1px solid #232327;
+      background:
+        radial-gradient(1200px 340px at 10% -40%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 280px at 90% -25%, rgba(225,29,72,.20), transparent 60%),
+        linear-gradient(135deg, rgba(20,22,30,.92), rgba(10,11,16,.92));
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
     }
+
+    /* Enfeites do hero */
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(500px 160px at 25% 0%, rgba(245,197,66,.12), transparent 70%),
+        radial-gradient(420px 140px at 75% 0%, rgba(245,197,66,.10), transparent 70%);
+      pointer-events:none;
+    }
+    .hero-top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .season-badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      background:linear-gradient(90deg, rgba(34,197,94,.18), rgba(245,197,66,.16), rgba(225,29,72,.18));
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:900; letter-spacing:.3px;
+    }
+    .season-badge b{ color:var(--gold-300); }
+    .twinkle{
+      display:inline-block;
+      width:8px; height:8px; border-radius:999px;
+      background:var(--gold-500);
+      box-shadow:0 0 16px rgba(245,197,66,.65);
+      animation: twinkle 1.7s infinite ease-in-out;
+    }
+    @keyframes twinkle{
+      0%,100%{ transform:scale(.85); opacity:.65; }
+      50%{ transform:scale(1.2); opacity:1; }
+    }
+
+    .lights{
+      display:flex; gap:6px; align-items:center; justify-content:flex-end;
+      opacity:.95;
+    }
+    .lights i{
+      width:10px;height:10px;border-radius:999px; display:inline-block;
+      box-shadow: 0 0 14px rgba(255,255,255,.22);
+      animation: blink 1.2s infinite ease-in-out;
+    }
+    .lights i:nth-child(1){ background: var(--christmas-red); animation-delay:0s; }
+    .lights i:nth-child(2){ background: var(--christmas-green); animation-delay:.2s; }
+    .lights i:nth-child(3){ background: var(--gold-500); animation-delay:.4s; }
+    .lights i:nth-child(4){ background: #60a5fa; animation-delay:.6s; }
+    .lights i:nth-child(5){ background: #a78bfa; animation-delay:.8s; }
+    @keyframes blink{
+      0%,100%{ opacity:.55; transform:translateY(0); }
+      50%{ opacity:1; transform:translateY(-1px); }
+    }
+
     .hero h1{margin:0 0 6px;font-size:clamp(24px,3.5vw,36px);letter-spacing:.3px}
-    .hero h1 .gold{color:var(--gold-500);text-shadow:0 0 12px rgba(245,197,66,.25)}
+    .hero h1 .gold{color:var(--gold-500);text-shadow:0 0 14px rgba(245,197,66,.25)}
     .hero p{margin:0;color:var(--muted)}
     .bf-badge{
-      display:inline-block;margin:10px 0 0;padding:6px 12px;border-radius:999px;
-      background:linear-gradient(90deg,var(--gold-600),var(--gold-500),var(--gold-300));
-      color:#19181b;font-weight:800;letter-spacing:.5px;border:1px solid #3a2d0a
+      display:inline-block;margin:10px 0 0;padding:7px 12px;border-radius:999px;
+      background:linear-gradient(90deg,var(--christmas-red-2),var(--christmas-red),var(--gold-500));
+      color:#0b0b0c;font-weight:900;letter-spacing:.4px;border:1px solid rgba(255,255,255,.10)
     }
 
     /* Filtros */
     .filters{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
-    .filters .pill.active{border-color:var(--pink-600);box-shadow:var(--ring)}
 
     /* Grid e Cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid #232327;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+    .card{
+      background:linear-gradient(180deg, rgba(18,19,26,.95), rgba(12,13,18,.95));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
+      box-shadow: 0 14px 36px rgba(0,0,0,.28);
+    }
     .card .img{position:relative;aspect-ratio:1/1.2;background:#0e0e11}
     .card img{width:100%;height:100%;object-fit:cover;display:block}
-    .badge{position:absolute;left:10px;top:10px;background:var(--pink-700);color:#fff;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
-    .badge.sale{left:auto;right:10px;background:#111;border:1px solid #333;color:var(--gold-500)}
+    .badge{
+      position:absolute;left:10px;top:10px;
+      background:rgba(34,197,94,.92);
+      color:#07130a;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .badge.sale{
+      left:auto;right:10px;
+      background:rgba(225,29,72,.18);
+      border:1px solid rgba(225,29,72,.45);
+      color:var(--gold-300);
+      backdrop-filter: blur(6px);
+    }
     .info{padding:14px 14px 8px}
     .name{font-weight:800}
-    .price{font-weight:800;color:var(--pink-400)}
+    .price{font-weight:900;color:var(--gold-300)}
     .line{color:#9ca3af;text-decoration:line-through;margin-right:6px}
     .muted{color:var(--muted);font-size:13px}
     .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .sizes button,.swatch,.qty{border:1px solid #2a2a30;background:#16161a;color:var(--ink);border-radius:12px;padding:8px 10px;font-weight:700;cursor:pointer}
-    .sizes button.active{background:var(--pink-600);color:#fff;border-color:var(--pink-600)}
+
+    .sizes button,.swatch,.qty{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(17,18,22,.92);
+      color:var(--ink);
+      border-radius:12px;padding:8px 10px;font-weight:800;cursor:pointer
+    }
+    .sizes button.active{
+      background:linear-gradient(90deg, rgba(34,197,94,.92), rgba(34,197,94,.70));
+      color:#04120a;border-color:rgba(34,197,94,.85);
+    }
     .swatch{width:28px;height:28px;border-radius:999px;padding:0;display:inline-flex;align-items:center;justify-content:center}
-    .swatch.active{outline:3px solid rgba(255,77,149,.35)}
+    .swatch.active{outline:3px solid rgba(245,197,66,.30)}
     .qty{display:flex;align-items:center;gap:10px}
     .qty button{border:none;background:none;font-size:18px;cursor:pointer;color:var(--ink)}
-    .add{margin:12px 14px 14px;padding:12px;border:none;border-radius:14px;background:var(--pink-700);color:#fff;font-weight:800;cursor:pointer}
-    .add:hover{background:#bd2c6a}
+    .add{
+      margin:12px 14px 14px;padding:12px;border:none;border-radius:14px;
+      background:linear-gradient(90deg, var(--christmas-red-2), var(--christmas-red));
+      color:#fff;font-weight:900;cursor:pointer;
+      box-shadow: 0 10px 22px rgba(225,29,72,.20);
+    }
+    .add:hover{filter:brightness(1.05)}
 
     /* Carrinho */
-    .fab{position:fixed;right:18px;bottom:18px;background:var(--pink-700);color:#fff;border:none;border-radius:999px;padding:14px 18px;font-weight:900;cursor:pointer;box-shadow:0 10px 25px rgba(255,77,149,.35);z-index:50}
+    .fab{
+      position:fixed;right:18px;bottom:18px;
+      background:linear-gradient(90deg, var(--christmas-red-2), var(--christmas-red), var(--gold-500));
+      color:#071016;border:none;border-radius:999px;padding:14px 18px;font-weight:1000;
+      cursor:pointer;box-shadow:0 14px 28px rgba(245,197,66,.18), 0 10px 25px rgba(225,29,72,.22);
+      z-index:50
+    }
     .drawer{position:fixed;inset:0;pointer-events:none;z-index:80}
     .drawer.active{pointer-events:auto}
     .overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:.2s}
     .drawer.active .overlay{opacity:1}
     .panel{
       position:absolute;right:-420px;top:0;height:100svh;width:min(92vw,380px);
-      background:#111114;border-left:1px solid #232327;transition:.25s;padding:18px;display:flex;flex-direction:column;gap:12px;overflow:auto;-webkit-overflow-scrolling:touch
+      background:rgba(12,13,18,.95);
+      border-left:1px solid rgba(255,255,255,.10);
+      transition:.25s;padding:18px;display:flex;flex-direction:column;gap:12px;overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      backdrop-filter: blur(10px);
     }
     .drawer.active .panel{right:0}
     #cartList{flex:1;overflow:auto;box-shadow: inset 0 10px 14px -12px rgba(0,0,0,.35)}
-    .cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border-bottom:1px dashed #2b2b30;padding:8px 0}
+    .cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border-bottom:1px dashed rgba(255,255,255,.12);padding:8px 0}
     .cart-item img{width:64px;height:64px;border-radius:12px;object-fit:cover}
     .cart-item .meta{font-size:12.5px;color:#c2c2c2}
-    .totals{margin-top:auto;border-top:1px solid #2b2b30;padding-top:10px}
+    .totals{margin-top:auto;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
     .cta{display:flex;flex-direction:column;gap:10px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
-    .btn{border:none;border-radius:14px;padding:12px 14px;font-weight:900;cursor:pointer}
+    .btn{border:none;border-radius:14px;padding:12px 14px;font-weight:1000;cursor:pointer}
     .btn.whats{background:#25d366;color:#073b16}
-    .btn.mail{background:#000;color:#fff;border:1px solid #333}
-    .btn.secondary{background:linear-gradient(90deg, #2b2b31, #1b1b20);color:#e8e8ea;border:1px solid #2a2a30}
+    .btn.mail{background:#000;color:#fff;border:1px solid rgba(255,255,255,.12)}
+    .btn.secondary{
+      background:linear-gradient(90deg, rgba(34,197,94,.20), rgba(245,197,66,.16), rgba(225,29,72,.20));
+      color:#f2f4ff;border:1px solid rgba(255,255,255,.12)
+    }
 
     /* Modal cadastro */
     .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);padding:16px;z-index:90}
     .modal.show{display:flex}
-    .card-modal{background:#141417;border-radius:20px;max-width:560px;width:100%;padding:18px;border:1px solid #232327;color:var(--ink)}
+    .card-modal{
+      background:rgba(18,19,26,.96);
+      border-radius:20px;max-width:560px;width:100%;padding:18px;
+      border:1px solid rgba(255,255,255,.10);color:var(--ink);
+      backdrop-filter: blur(10px);
+    }
     .card-modal h3{margin:0 0 8px}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .grid2 .full{grid-column:1/-1}
-    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a2a30;background:#0f0f12;color:var(--ink)}
-    input:focus,textarea:focus,select:focus{outline:none;box-shadow:var(--ring);border-color:var(--pink-400)}
-    .ok{display:none;margin:8px 0 0;padding:10px;border-radius:12px;background:#131215;border:1px solid #2a2a30;color:#c5ffc5;font-weight:700}
+    input,select,textarea{
+      width:100%;padding:12px 14px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(7,8,10,.55);
+      color:var(--ink)
+    }
+    input:focus,textarea:focus,select:focus{outline:none;box-shadow:var(--ring);border-color:rgba(245,197,66,.55)}
+    .ok{display:none;margin:8px 0 0;padding:10px;border-radius:12px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#c5ffc5;font-weight:800}
     .ok.show{display:block}
 
     footer{margin:40px 0 80px;color:var(--muted);text-align:center}
@@ -198,6 +351,9 @@
 </head>
 
 <body>
+  <!-- Neve -->
+  <canvas id="snow" aria-hidden="true"></canvas>
+
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização da imagem ampliada">
     <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
@@ -211,7 +367,7 @@
         <img src="./img/logo.png" alt="Brasille Moda Fit">
         <div>
           <div class="brand">Brasille Moda Fit</div>
-          <div class="sub">Até 40% de desconto</div>
+          <div class="sub">Final de Ano • Estoque limitado ✨</div>
         </div>
       </div>
       <div class="row">
@@ -224,9 +380,14 @@
 
   <main class="container">
     <section class="hero">
-      <span class="bf-badge">BLACK FRIDAY • LIMPA ESTOQUE</span>
-      <h1><span class="gold">Novidades</span> em rosa • conforto & performance</h1>
-      <p>Escolha tamanho, cor e adicione ao carrinho. O fechamento é feito por WhatsApp ou e-mail para conferência de estoque.</p>
+      <div class="hero-top">
+        <span class="season-badge"><span class="twinkle"></span> <b>Natal & Ano Novo</b> • looks pra brilhar ✨</span>
+        <span class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+
+      <span class="bf-badge">FINAL DE ANO • PRESENTEIE-SE 🎁</span>
+      <h1><span class="gold">Novidades</span> • conforto, performance e vibe de festa</h1>
+      <p>Escolha tamanho, cor e adicione ao carrinho. Finalize por WhatsApp ou e-mail para confirmar estoque e entrega.</p>
     </section>
 
     <div class="filters">
@@ -243,7 +404,7 @@
   <div class="drawer" id="drawer">
     <div class="overlay" id="overlay"></div>
     <aside class="panel">
-      <h2 tabindex="-1" style="margin:0;position:sticky;top:0;background:#111114;padding-bottom:8px;z-index:1">Seu carrinho</h2>
+      <h2 tabindex="-1" style="margin:0;position:sticky;top:0;background:transparent;padding-bottom:8px;z-index:1">Seu carrinho</h2>
       <div id="cartList"></div>
       <div class="totals">
         <div class="row" style="justify-content:space-between">
@@ -290,16 +451,13 @@
   </div>
 
   <footer class="container" id="politica">
-    <!-- =========================
-     FAQ + Trust Strip (Brasille Moda Fit)
-     Cole este bloco antes do <footer> do seu site
-========================= -->
+    <!-- Trust Strip + FAQ -->
 <section class="bmf-trust">
   <div class="bmf-trust__wrap">
     <div class="bmf-pill">Frete UK • Royal Mail / Evri</div>
     <div class="bmf-pill">Troca em 7 dias</div>
     <div class="bmf-pill">Atendimento humano via WhatsApp</div>
-    <div class="bmf-pill">Estoque limitado BLACK FRIDAY</div>
+    <div class="bmf-pill">Final de Ano • Estoque limitado</div>
   </div>
 </section>
 
@@ -310,97 +468,89 @@
   </div>
 
   <div class="bmf-accordion" role="tablist">
-    <!-- 1 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>1. Os produtos são originais?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Sim — trabalhamos apenas com fornecedores oficiais. Conheça suas garantias para vendas online no Reino Unido em 
+        <p>Sim — trabalhamos apenas com fornecedores oficiais. Conheça seus direitos de compra online no Reino Unido:
           <a href="https://www.gov.uk/business-legal-obligations-online-sales" target="_blank" rel="noopener">gov.uk</a>.
         </p>
       </div>
     </details>
 
-    <!-- 2 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>2. Como funciona o tamanho?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Modelagem justa. Se estiver entre dois tamanhos, escolha o maior. Para referência, veja um guia genérico de medidas em 
+        <p>Modelagem justa. Se estiver entre dois tamanhos, escolha o maior. Referência genérica:
           <a href="https://www.sizeguide.net/" target="_blank" rel="noopener">sizeguide.net</a>.
         </p>
       </div>
     </details>
 
-    <!-- 3 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>3. É seguro comprar pelo WhatsApp?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Sim — você confirma estoque e dados com atendimento humano. Dicas de segurança digital no 
-          <a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online" target="_blank" rel="noopener">NCSC</a>.
+        <p>Sim — você confirma estoque e dados com atendimento humano. Dicas de segurança digital:
+          <a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online" target="_blank" rel="noopener">NCSC (UK)</a>.
         </p>
       </div>
     </details>
 
-    <!-- 4 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>4. Envio para todo o Reino Unido?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Sim, por Royal Mail / Evri com rastreio. Consulte:
+        <p>Sim, por Royal Mail / Evri com rastreio:
           <a href="https://www.royalmail.com/track-your-item" target="_blank" rel="noopener">Royal Mail</a> •
           <a href="https://www.evri.com/track-a-parcel" target="_blank" rel="noopener">Evri</a>.
         </p>
       </div>
     </details>
 
-    <!-- 5 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>5. Prazo de entrega?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Em geral, 1–4 dias úteis (Londres costuma ser 24–48h). Consulte estimativas na 
+        <p>Em geral, 1–4 dias úteis (Londres costuma ser 24–48h). Acompanhe:
           <a href="https://www.evri.com/track-a-parcel" target="_blank" rel="noopener">Evri</a>.
         </p>
       </div>
     </details>
 
-    <!-- 6 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>6. Posso trocar se não servir?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Sim — 7 dias para solicitar troca, peça sem uso e com etiqueta. Regras de devolução:
+        <p>Sim — 7 dias para solicitar troca, peça sem uso e com etiqueta. Regras gerais:
           <a href="https://www.gov.uk/accepting-returns-and-giving-refunds" target="_blank" rel="noopener">gov.uk</a>.
         </p>
       </div>
     </details>
 
-    <!-- 7 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>7. A promoção vai acabar?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Sim — BLACK FRIDAY é limitada ao estoque. Ao acabar, os preços retornam ao valor original (£40).</p>
+        <p>Sim — promoções são limitadas ao estoque. Ao acabar, os valores retornam ao preço normal.</p>
       </div>
     </details>
 
-    <!-- 8 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>8. Como confirmo disponibilidade?</span>
@@ -411,7 +561,6 @@
       </div>
     </details>
 
-    <!-- 9 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>9. Posso ver fotos reais?</span>
@@ -422,14 +571,13 @@
       </div>
     </details>
 
-    <!-- 10 -->
     <details class="bmf-item">
       <summary class="bmf-q" role="tab" aria-expanded="false">
         <span>10. Quais formas de pagamento?</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5l-7-7 1.5-1.5L12 12.5l5.5-5.5L19 8.5z"/></svg>
       </summary>
       <div class="bmf-a" role="region">
-        <p>Pix BR, transferência UK e, em áreas de Londres, pagamento na entrega (consultar). Dicas gerais de pagamentos seguros: 
+        <p>Pix BR, transferência UK e, em áreas de Londres, pagamento na entrega (consultar). Dicas de pagamentos seguros:
           <a href="https://www.paymentsuk.org.uk/" target="_blank" rel="noopener">Payments UK</a>.
         </p>
       </div>
@@ -446,16 +594,16 @@
 
 <style>
   :root{
-    --bmf-bg:#0f0f12;
-    --bmf-card:#15151a;
-    --bmf-stroke:#23232b;
-    --bmf-text:#eaeaf0;
+    --bmf-bg: transparent;
+    --bmf-card: rgba(18,19,26,.92);
+    --bmf-stroke: rgba(255,255,255,.10);
+    --bmf-text:#eef0ff;
     --bmf-dim:#a7a7b3;
-    --bmf-accent:#ff2e6b; /* combine com seus botões */
-    --bmf-accent-2:#8a8aff; 
+    --bmf-accent:#e11d48;
+    --bmf-accent-2:#f5c542;
     --bmf-radius:16px;
   }
-  .bmf-trust{background:linear-gradient(90deg,rgba(255,46,107,.08),rgba(138,138,255,.08));padding:18px 0;margin:56px auto 0}
+  .bmf-trust{background:linear-gradient(90deg,rgba(34,197,94,.10),rgba(245,197,66,.08),rgba(225,29,72,.10));padding:18px 0;margin:56px auto 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
   .bmf-trust__wrap{max-width:1100px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .bmf-pill{border:1px solid var(--bmf-stroke);background:var(--bmf-card);color:var(--bmf-text);padding:10px 14px;border-radius:999px;font-size:14px}
   .bmf-faq{max-width:1100px;margin:26px auto 80px;padding:0 14px}
@@ -463,15 +611,15 @@
   .bmf-faq__header p{color:var(--bmf-dim);margin:0 0 18px}
   .bmf-accordion{display:grid;gap:10px}
   .bmf-item{border:1px solid var(--bmf-stroke);border-radius:var(--bmf-radius);background:var(--bmf-card);transition:border-color .2s ease}
-  .bmf-item[open]{border-color:rgba(255,46,107,.45)}
-  .bmf-q{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;color:var(--bmf-text);font-weight:600}
+  .bmf-item[open]{border-color:rgba(245,197,66,.45)}
+  .bmf-q{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;color:var(--bmf-text);font-weight:700}
   .bmf-q::-webkit-details-marker{display:none}
   .bmf-q svg{width:18px;height:18px;transform:rotate(-90deg);transition:transform .2s ease;fill:var(--bmf-dim)}
   .bmf-item[open] .bmf-q svg{transform:rotate(0)}
   .bmf-a{padding:0 18px 16px;color:var(--bmf-dim);line-height:1.6}
   .bmf-a a{color:var(--bmf-accent-2);text-decoration:underline}
   .bmf-faq__cta{display:grid;gap:10px;justify-items:center;margin-top:18px}
-  .bmf-btn{display:inline-block;background:var(--bmf-accent);color:#fff;padding:14px 18px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(255,46,107,.25)}
+  .bmf-btn{display:inline-block;background:linear-gradient(90deg,#be123c,#e11d48,#f5c542);color:#071016;padding:14px 18px;border-radius:12px;font-weight:900;text-decoration:none;box-shadow:0 10px 22px rgba(245,197,66,.16),0 10px 22px rgba(225,29,72,.16)}
   .bmf-btn:hover{filter:brightness(1.05)}
   .bmf-hint{margin:0;color:var(--bmf-dim);font-size:13px}
   @media (max-width:640px){
@@ -480,7 +628,6 @@
 </style>
 
 <script>
-  // Acessibilidade mínima: muda aria-expanded ao abrir/fechar
   document.querySelectorAll('.bmf-item').forEach(d=>{
     const s = d.querySelector('summary');
     d.addEventListener('toggle',()=>s.setAttribute('aria-expanded', d.open ? 'true' : 'false'));
@@ -488,7 +635,7 @@
 </script>
 
     <p>Ao enviar o pedido por WhatsApp/E-mail você concorda com o contato para confirmação de estoque e entrega. Sem pagamento online neste site.</p>
-    <p>© <span id="y"></span> Brasille Moda Fit — BLACK FRIDAY.</p>
+    <p>© <span id="y"></span> Brasille Moda Fit — Final de Ano.</p>
   </footer>
 
   <script>
@@ -551,14 +698,14 @@
         <div class="img">
           <img src="${imgUrl(p.imagem)}" alt="${p.nome}">
           <span class="badge">REF ${p.id}</span>
-          ${p.promocao ? '<span class="badge sale">OFERTA</span>' : ''}
+          ${p.promocao ? '<span class="badge sale">OFERTA ✨</span>' : ''}
         </div>
         <div class="info">
           <div class="name">${p.nome}</div>
           <div class="row" style="justify-content:space-between;margin:6px 0 8px">
             <span class="muted">
               ${p.promocao ? 'Em promoção' : 'Disponível'}
-              ${p.estoque && p.estoque<=5 ? ' • <span style="color:#ff8fa3;font-weight:800">Últimas unidades</span>' : ''}
+              ${p.estoque && p.estoque<=5 ? ' • <span style="color:#fff2b8;font-weight:900">Últimas unidades</span>' : ''}
             </span>
             <span>
               ${p.promocao
@@ -673,7 +820,7 @@
         row.innerHTML = `
           <img src="${it.imagem}" alt="">
           <div>
-            <div style="font-weight:800">${it.nome}</div>
+            <div style="font-weight:900">${it.nome}</div>
             <div class="meta">Tamanho: ${it.tamanho} • Cor: ${it.cor}</div>
             <div class="meta">Qtd: ${it.q} • ${money(it.preco)} un.</div>
           </div>
@@ -729,7 +876,7 @@
       const linhas = state.cart.map(it=>`• ${it.nome} (Tam: ${it.tamanho} | Cor: ${it.cor}) x${it.q} — ${money(it.preco)} un.`);
       const total = state.cart.reduce((s,it)=> s + it.preco*it.q, 0);
       const c = state.cadastro || {};
-      const cab = `${STORE.nome} — Pedido via catálogo`;
+      const cab = `${STORE.nome} — Pedido via catálogo (Final de Ano)`;
       const cli = `\n\nCliente: ${c.nome}\nWhatsApp: ${c.tel}\nE-mail: ${c.email||'-'}\nCEP/Postcode: ${c.cep||'-'}\nObservações: ${c.obs||'-'}`;
       const rod = `\n\nTotal: ${money(total)}\nRef.: ${Date.now()}`;
       return `${cab}\n\nItens:\n${linhas.join('\n')}${cli}${rod}`;
@@ -743,7 +890,7 @@
     });
     document.querySelector('#btnEmail').addEventListener('click', ()=>{
       if(state.cart.length===0 || !state.cadastro) return;
-      const assunto = encodeURIComponent(`${STORE.nome} • Pedido do catálogo`);
+      const assunto = encodeURIComponent(`${STORE.nome} • Pedido do catálogo (Final de Ano)`);
       const corpo = encodeURIComponent(montarTextoPedido());
       const url = `mailto:${STORE.emailPedidos}?subject=${assunto}&body=${corpo}`;
       window.location.href = url;
@@ -814,9 +961,78 @@
     lbImg.addEventListener('pointerup', ()=>{ panning = false; });
     lbImg.addEventListener('pointercancel', ()=>{ panning = false; });
 
+    // ===== Neve (canvas simples e leve) =====
+    (function snow(){
+      const canvas = document.getElementById('snow');
+      const ctx = canvas.getContext('2d');
+      let w, h, dpr;
+      const flakes = [];
+      const MAX = 120;
+
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduced) return;
+
+      function resize(){
+        dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        w = canvas.width = Math.floor(innerWidth * dpr);
+        h = canvas.height = Math.floor(innerHeight * dpr);
+        canvas.style.width = innerWidth + 'px';
+        canvas.style.height = innerHeight + 'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+
+      function rand(min,max){ return Math.random()*(max-min)+min; }
+
+      function spawn(){
+        return {
+          x: rand(0, innerWidth),
+          y: rand(-innerHeight, 0),
+          r: rand(1, 3.2),
+          vy: rand(0.6, 1.9),
+          vx: rand(-0.25, 0.25),
+          a: rand(0.35, 0.85)
+        };
+      }
+
+      function init(){
+        flakes.length = 0;
+        const count = Math.min(MAX, Math.floor(innerWidth/8));
+        for(let i=0;i<count;i++) flakes.push(spawn());
+      }
+
+      function step(){
+        ctx.clearRect(0,0,innerWidth,innerHeight);
+        for(const f of flakes){
+          f.y += f.vy;
+          f.x += f.vx;
+          if(f.y > innerHeight + 10) { f.y = rand(-60, -10); f.x = rand(0, innerWidth); }
+          if(f.x < -10) f.x = innerWidth + 10;
+          if(f.x > innerWidth + 10) f.x = -10;
+
+          ctx.globalAlpha = f.a;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+          ctx.fillStyle = 'white';
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(step);
+      }
+
+      window.addEventListener('resize', ()=>{ resize(); init(); });
+      resize(); init(); step();
+    })();
+
     // Inicialização
     const qp = new URLSearchParams(location.search);
     renderCatalogo(qp.get('promo') === '1' ? 'promo' : 'todos');
   </script>
+
+  <!-- Fontes confiáveis (pra você manter padrão de qualidade) -->
+  <!--
+    - Prefers Reduced Motion (acessibilidade): https://www.w3.org/TR/mediaqueries-5/#prefers-reduced-motion
+    - Dicas de segurança online (NCSC UK): https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online
+    - Regras gerais de devolução/returns (UK gov): https://www.gov.uk/accepting-returns-and-giving-refunds
+  -->
 </body>
 </html>
